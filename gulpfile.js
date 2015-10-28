@@ -192,7 +192,7 @@ gulp.task('styles-grid', function() {
 });
 
 // Concatenate And Minify JavaScript
-gulp.task('scripts', ['jscs', 'jshint'], function() {
+gulp.task('scripts', [], function() {
   var sources = [
     // Component handler
     'src/mdlComponentHandler.js',
@@ -261,7 +261,7 @@ gulp.task('all', ['clean', 'mocha'], function(cb) {
   runSequence(
     ['default', 'styletemplates'],
     ['styles:gen'],
-    ['jshint', 'jscs', 'scripts',  'assets', 'demos', 'pages',
+    ['scripts',  'assets', 'demos', 'pages',
      'templates', 'images', 'styles-grid', 'metadata'],
     ['zip'],
     cb);
@@ -274,7 +274,7 @@ gulp.task('mocha', ['styles'], function() {
     .pipe($.mochaPhantomjs({reporter: 'tap'}));
 });
 
-gulp.task('test', ['jshint', 'jscs', 'mocha']);
+gulp.task('test', ['mocha']);
 
 gulp.task('test:visual', function() {
   browserSync({
