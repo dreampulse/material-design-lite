@@ -63,7 +63,7 @@
    * @private
    */
   MaterialTooltip.prototype.handleMouseEnter_ = function(event) {
-    event.stopPropagation();
+    //event.stopPropagation();
     var props = event.target.getBoundingClientRect();
     var left = props.left + (props.width / 2);
     var marginLeft = -1 * (this.element_.offsetWidth / 2);
@@ -89,7 +89,7 @@
    * @private
    */
   MaterialTooltip.prototype.handleMouseLeave_ = function(event) {
-    event.stopPropagation();
+    //event.stopPropagation();
     this.element_.classList.remove(this.CssClasses_.IS_ACTIVE);
     window.removeEventListener('scroll', this.boundMouseLeaveHandler);
     window.removeEventListener('touchmove', this.boundMouseLeaveHandler, false);
